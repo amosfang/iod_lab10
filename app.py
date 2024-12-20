@@ -13,8 +13,7 @@ def run():
     st.text("")
     predicted_sentiment = ""
     if st.button("Predict"):
-        processed_text = preprocessor(userinput)  # Preprocess the input text
-        predicted_sentiment = model.predict([processed_text])[0] 
+        predicted_sentiment = model.predict(pd.Series(userinput))
         if predicted_sentiment == 1:
             output = 'positive 👍'
         else:
